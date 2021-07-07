@@ -1,0 +1,16 @@
+.MenuContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.MenuContainer p{
+    margin: 0px 20px;
+}
+
+.MenuContainer p:nth-child(1){
+    font-weight: bold;
+}
+
+.MenuContainer div{
+    margin: 10px;
+}

@@ -1,0 +1,31 @@
+.Products{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95vw;
+    margin: auto;
+    justify-content: center;
+}
+.Products p:nth-child(1){
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.Products p:nth-child(2){
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.Products button{
+    background: royalblue;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 0.7rem;
+}
+
+.Products div{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 0px 10px;
+}
