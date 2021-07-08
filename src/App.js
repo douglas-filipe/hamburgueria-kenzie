@@ -15,18 +15,27 @@ function App() {
     { id: 7, name: 'Fanta', category: 'Bebidas', price: 4.99 },
   ]);
 
-  const [productFind, setProductFind] = useState([])
+  const [productFind, setProductFind] = useState('')
 
-  const [filteredProducts, setFilteredProducts] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   const [currentSale, setCurrentSale] = useState([])
   const [cartTotal, setCartTotal] = useState(0)
 
   function showProducts() {
-    
+
+    products.map((el) => {
+      if (el.name === productFind) {
+        setFilteredProducts(el)
+      }
+    })
+
+
+
   }
 
-
+  console.log(filteredProducts.name)
+  console.log(products.name)
 
 
   function handleClick(id) {
@@ -37,29 +46,37 @@ function App() {
     if (!currentSale.map(el => el.id).includes(produto.id)) {
       setCurrentSale([...currentSale, produto])
       setCartTotal(produto.price + cartTotal)
+      setFilteredProducts([])
     }
   }
 
+  
 
-  console.log(filteredProducts)
+
 
 
   return (
     <div className="App">
       <form>
         <input
-          value={filteredProducts}
+          value={productFind}
           type="text"
-          onChange={(e) => setFilteredProducts([e.target.value])} />
+          onChange={(e) => setProductFind(e.target.value)} />
 
         <button onClick={showProducts} type="button">Pesquisar</button>
       </form>
 
-      <Product products={products} handleClick={handleClick} />
+      {filteredProducts.length === 0 ?
+        <Product products={products} handleClick={handleClick} />
+        :
+        <Product products={filteredProducts} handleClick={handleClick} />
+      }
+
+
 
       <span className="total">Subtotal - R${cartTotal.toFixed(2)}</span>
       <div className="Carrinho">
-        <MenuContainer currentSale={currentSale} />
+        <MenuContainer currentSale={currentSale} handleClick={handleClick}/>
       </div>
 
     </div>
@@ -76,3 +93,4 @@ function App() {
 
 
 export default App;
+
