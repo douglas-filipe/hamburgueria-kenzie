@@ -3,7 +3,7 @@ import MenuContainer from './components/MenuContainer';
 import Product from './components/Product';
 import './style.css'
 
-function App() {
+const App = () => {
 
   const [products, setProducts] = useState([
     { id: 1, name: 'Hamburguer', category: 'Sanduíches', price: 7.99 },
