@@ -5,6 +5,11 @@ import './style.css'
 
 const App = () => {
 
+  const [productFind, setProductFind] = useState('')
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [currentSale, setCurrentSale] = useState([])
+  const [cartTotal, setCartTotal] = useState(0)
+
   const [products, setProducts] = useState([
     { id: 1, name: 'Hamburguer', category: 'Sanduíches', price: 7.99 },
     { id: 2, name: 'X-Burguer', category: 'Sanduíches', price: 8.99 },
@@ -15,14 +20,7 @@ const App = () => {
     { id: 7, name: 'Fanta', category: 'Bebidas', price: 4.99 },
   ]);
 
-  const [productFind, setProductFind] = useState('')
-
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  const [currentSale, setCurrentSale] = useState([])
-  const [cartTotal, setCartTotal] = useState(0)
-
-  function showProducts() {
+  const showProducts = () => {
 
     products.map((el) => {
       if (el.name === productFind) {
@@ -30,15 +28,9 @@ const App = () => {
       }
     })
 
-
-
   }
 
-  console.log(filteredProducts.name)
-  console.log(products.name)
-
-
-  function handleClick(id) {
+  const handleClick = (id) => {
     const produto = products.find((el) => {
       return el.id === id
     })
@@ -49,10 +41,6 @@ const App = () => {
       setFilteredProducts([])
     }
   }
-
-  
-
-
 
 
   return (
@@ -71,8 +59,6 @@ const App = () => {
         :
         <Product products={filteredProducts} handleClick={handleClick} />
       }
-
-
 
       <span className="total">Subtotal - R${cartTotal.toFixed(2)}</span>
       <div className="Carrinho">

@@ -1,6 +1,6 @@
 import './style.css'
 
-function Product({ products, handleClick }) {
+const Product = ({ products, handleClick }) => {
     return (
 
         <main>

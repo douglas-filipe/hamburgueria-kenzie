@@ -1,6 +1,6 @@
 import './style.css'
 
-function MenuContainer({currentSale}){
+const MenuContainer = ({currentSale}) => {
     return(
         <div>
             
