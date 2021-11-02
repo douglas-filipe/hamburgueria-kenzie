@@ -1,4 +1,4 @@
-<h1 align="center">Hamburgueria da kenzie</h1>
+<h1 align="center">Hamburgueria</h1>
 <h4 align="center"> 
 	🚀 Projeto finalizado
 </h4>
